@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class BoxColliderBehavior : MonoBehaviour {
 
+    public SpaceShipBehavior spaceShip;
+
     private BoxCollider2D colliderbox;
 
 	void Start () {
@@ -17,6 +19,8 @@ public class BoxColliderBehavior : MonoBehaviour {
     private void OnMouseDown()
     {
         Debug.Log("Touché ! " + gameObject.name);
+
+        spaceShip.estTouche();
 
         colliderbox.enabled = false;
     }

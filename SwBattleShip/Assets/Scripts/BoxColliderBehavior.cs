@@ -37,7 +37,13 @@ public class BoxColliderBehavior : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider == colliderbox)
+                {
+                    Debug.Log("Touché ! " + gameObject.name);
+
+                    spaceShip.estTouche();
+
                     colliderbox.enabled = false;
+                }
             }
         }
     }

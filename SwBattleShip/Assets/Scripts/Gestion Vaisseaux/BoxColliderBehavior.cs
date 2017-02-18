@@ -13,6 +13,8 @@ public class BoxColliderBehavior : MonoBehaviour {
         colliderbox = GetComponent<BoxCollider2D>();
 
         Physics.queriesHitTriggers = true;
+
+        this.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     // methode pour Pc...
@@ -28,7 +30,7 @@ public class BoxColliderBehavior : MonoBehaviour {
     // methode pour android...
     private void Update()
     {
-        foreach (Touch touche in Input.touches)
+            foreach (Touch touche in Input.touches)
         {
             Ray ray = Camera.main.ScreenPointToRay(touche.position);
 

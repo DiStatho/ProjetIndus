@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour {
+public class Credit : MonoBehaviour {
 
-    
 	// Use this for initialization
 	void Start () {
 		
@@ -15,9 +13,4 @@ public class Menu : MonoBehaviour {
 	void Update () {
 		
 	}
-
-    public void ouvrirScene(string nameScene)
-    {
-        SceneManager.LoadScene(nameScene);
-    }
 }

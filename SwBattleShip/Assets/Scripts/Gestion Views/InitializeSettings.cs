@@ -33,4 +33,8 @@ public class InitializeSettings : MonoBehaviour {
 		else
 			return 1;
 	}
+
+	public void Reload(){
+		Start ();
+	}
 }

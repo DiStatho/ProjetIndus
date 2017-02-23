@@ -30,10 +30,10 @@ public class JsonReader : MonoBehaviour {
 		return _json[key].Value;
 	}
 
-	private void GetJsonFile(){
+	public void GetJsonFile(){
 		string path = string.Format ("strings_{0}", GlobalData.GetCurrentLangage());
-		print (path);
 		_jsonFile = Resources.Load (path, typeof(object));
 		_json = JSON.Parse (_jsonFile.ToString ());
 	}
+
 }

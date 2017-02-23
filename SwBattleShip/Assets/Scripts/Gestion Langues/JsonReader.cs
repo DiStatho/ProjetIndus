@@ -12,7 +12,9 @@ public class JsonReader : MonoBehaviour {
 	}
 
 	void Awake(){
-		Global.jsonReader = this;
+		if (GlobalData.IsFirstCheck ()) {
+			GlobalData.SetJsonReader (this);
+		}
 	}
 	
 	// Update is called once per frame
@@ -28,9 +30,10 @@ public class JsonReader : MonoBehaviour {
 		return _json[key].Value;
 	}
 
-	private void GetJsonFile(){
-		string path = string.Format ("strings_{0}", Global.currentLangage);
+	public void GetJsonFile(){
+		string path = string.Format ("strings_{0}", GlobalData.GetCurrentLangage());
 		_jsonFile = Resources.Load (path, typeof(object));
 		_json = JSON.Parse (_jsonFile.ToString ());
 	}
+
 }

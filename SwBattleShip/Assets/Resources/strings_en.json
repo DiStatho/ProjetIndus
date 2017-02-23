@@ -1,10 +1,12 @@
 {
-	"PVP" : "1 Player ",
-	"PVE" : "2 Players",
+	"PVP" : "2 Players ",
+	"PVE" : "1 Player",
 	"credit" : "Credits",
 	"back" : "Back",
 	"settings" : "Settings",
-	"creditText" : "en âergâzg",
+	"creditText" : "This game is product for the M2 CCI at Aix Marseille University.\n It product by two students : Stathopulos Julien and Di Grande Fabien.\n
+	Be cool with us, it's our first application with Unity :D.\n
+	Current version : 0.0.3",
 	"music" : "Music",
 	"sound" : "Sound",
 }

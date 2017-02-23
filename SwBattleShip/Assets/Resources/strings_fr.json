@@ -1,10 +1,14 @@
 {
-	"PVP" : "1 Joueur ",
-	"PVE" : "2 Joueurs",
+	"PVP" : "2 Joueurs ",
+	"PVE" : "1 Joueur",
 	"credit" : "A propos",
 	"back" : "Retour",
 	"settings" : "Réglages",
-	"creditText" : "fr âergâzg",
+	"creditText" : "Ce jeu est réalisé dans le cadre du projet Industriel en M2 CCI à Aix Marseille Université.\n Il est réalisé par 2 étudiants en plein apprentissage de UNITY. Soyez indulgents avec nous pour nos début :D
+
+Programmeur : Julien Stathopulos ,Di Grande Fabien.
+
+Version actuelle : 0.0.3",
 	"music" : "Musique",
 	"sound" : "Son",
 }

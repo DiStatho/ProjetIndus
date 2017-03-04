@@ -6,10 +6,84 @@ public class DraggingShip : MonoBehaviour {
 
     float distance = 10;
 
+    [SerializeField]
+    private float deltaPlacement = 0;
+
+    private float timerBeforeMoving = 1.0f;
+    private bool isMoving = false;
+
+    public Grille grid;
+    public GameObject ship;
+
+    private void Awake()
+    {
+        grid.initializationList();
+    }
+
+    public void calculVectorPlusProche()
+    {
+        Vector2 posShip = ship.transform.position;
+
+        Vector2 posShipPlacer = posShip;
+
+        float min = 1000000;
+        float dist;
+
+        for (int i = 0; i < grid.listLength() ; i++)
+        {
+            dist = Vector2.Distance(posShip, grid.getElemGrille(i));
+
+            if (dist < min)
+            {
+                min = dist;
+
+                posShipPlacer = grid.getElemGrille(i);
+            }
+        }
+
+        if (ship.transform.rotation.eulerAngles.z == 0 || ship.transform.rotation.eulerAngles.z == 180)
+            posShipPlacer.x += deltaPlacement;
+        else
+            posShipPlacer.y += deltaPlacement;
+
+        placerVaisseau(posShipPlacer);
+    }
+
+    public void placerVaisseau(Vector3 vector)
+    {
+        ship.transform.position = vector;
+    }
+
     private void OnMouseDrag()
     {
-        Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
-        Vector3 objPosition = Camera.main.ScreenToWorldPoint(position);
-        transform.position = objPosition;
+        timerBeforeMoving -= Time.deltaTime;
+
+        if (timerBeforeMoving <= 0)
+            isMoving = true;
+
+        if (isMoving)
+        {
+            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
+            Vector3 objPosition = Camera.main.ScreenToWorldPoint(position);
+            transform.position = objPosition;
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        if (isMoving)
+        {
+            calculVectorPlusProche();
+
+            isMoving = false;
+        }
+        else
+        {
+            ship.transform.Rotate(0, 0, 90);
+            ship.transform.Translate(-deltaPlacement, -deltaPlacement, 0);
+        }
+
+        timerBeforeMoving = 1.0f;
     }
 }
+

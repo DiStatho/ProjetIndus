@@ -18,23 +18,6 @@ public class BoardManager : MonoBehaviour {
 
     private Transform boardHolder;
 
-    // private List<Vector3> gridPositions = new List<Vector3>();
-
-    /*
-    void InitializationList()
-    {
-        gridPositions.Clear ();
-            
-        for(int x = 1; x<columns-1; x++)
-        {
-            for(int y = 1; y<rows-1; y++)
-            {
-                gridPositions.Add (new Vector3(x, y, 0f));
-            }
-        }
-    }
-    */
-
     void BackGroundSetUp()
     {
         GameObject toInstantiate = backgrounds[Random.Range(0, backgrounds.Length)];
@@ -64,8 +47,6 @@ public class BoardManager : MonoBehaviour {
 
     public void SetupScene()
     {
-        // InitializationList();
-
         BackGroundSetUp();
         GridSetup();
     }

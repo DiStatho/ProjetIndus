@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpaceShipBehavior : MonoBehaviour {
 
     public int nbBoxCollider = 2;
-
+    
     public void estTouche()
     {
         nbBoxCollider--;

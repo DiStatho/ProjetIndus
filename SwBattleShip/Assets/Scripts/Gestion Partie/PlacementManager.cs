@@ -17,11 +17,22 @@ public class PlacementManager : MonoBehaviour {
                 boxC.enabled = true;
             }
 
-            BoxCollider2D[] boxParentTemp = ships.GetComponents<BoxCollider2D>();
+            PolygonCollider2D[] boxParentTemp = ships.GetComponents<PolygonCollider2D>();
 
-            foreach(BoxCollider2D boxP in boxParentTemp)
+            foreach (PolygonCollider2D boxP in boxParentTemp)
             {
                 boxP.enabled = false;
+            }
+
+            Destroy(ships.GetComponent<DraggingShip>());
+
+            Destroy(ships.GetComponent<Rigidbody2D>());
+
+            Renderer[] cache = ships.GetComponents<Renderer>();
+
+            foreach (Renderer rd in cache)
+            {
+                rd.enabled = false;
             }
         }
     }

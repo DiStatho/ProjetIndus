@@ -15,6 +15,8 @@ public class BoxColliderBehavior : MonoBehaviour {
         Physics.queriesHitTriggers = true;
 
         this.GetComponent<BoxCollider2D>().enabled = false;
+
+        this.enabled = false;
     }
 
     // methode pour Pc...

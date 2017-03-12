@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grille : MonoBehaviour {
+public class Grille : MonoBehaviour{
 
     private int nbColumns = 17;
     private int nbRows = 17;

@@ -18,6 +18,22 @@ public class BoardManager : MonoBehaviour {
 
     private Transform boardHolder;
 
+    public Grille laGrille;
+    public GameObject col;
+    private Transform caseHolder;
+
+    void CaseVideSetup()
+    {
+        caseHolder = new GameObject("Cases").transform;
+
+        for (int i = 0; i < laGrille.listLength(); i++)
+        {
+            GameObject _case = Instantiate(col, laGrille.getElemGrille(i), Quaternion.identity);
+
+            _case.transform.SetParent(caseHolder);
+        }
+    }
+
     void BackGroundSetUp()
     {
         GameObject toInstantiate = backgrounds[Random.Range(0, backgrounds.Length)];
@@ -49,6 +65,10 @@ public class BoardManager : MonoBehaviour {
     {
         BackGroundSetUp();
         GridSetup();
+
+        laGrille.initializationList();
+
+        CaseVideSetup();
     }
 
 }

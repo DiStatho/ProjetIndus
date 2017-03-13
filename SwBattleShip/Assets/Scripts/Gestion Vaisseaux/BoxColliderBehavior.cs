@@ -9,6 +9,8 @@ public class BoxColliderBehavior : MonoBehaviour {
 
     private BoxCollider2D colliderbox;
 
+    public GameObject explo;
+
 	void Start () {
         colliderbox = GetComponent<BoxCollider2D>();
 
@@ -25,6 +27,8 @@ public class BoxColliderBehavior : MonoBehaviour {
         Debug.Log("Touché ! " + gameObject.name);
 
         spaceShip.estTouche();
+
+        Instantiate(explo, colliderbox.transform.position, Quaternion.identity);
 
         colliderbox.enabled = false;
     }

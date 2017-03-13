@@ -54,6 +54,7 @@ public class DraggingShip : MonoBehaviour {
         ship.transform.position = vector;
     }
 
+    // methode pour Pc...
     private void OnMouseDrag()
     {
         timerBeforeMoving -= Time.deltaTime;
@@ -69,6 +70,7 @@ public class DraggingShip : MonoBehaviour {
         }
     }
 
+    // methode pour Pc...
     private void OnMouseUp()
     {
         if (isMoving)

@@ -6,6 +6,8 @@ public class ShooterManager : MonoBehaviour {
 
     private Collider2D caseVide;
     private bool isTrigerred = false;
+    private bool shootable = false;
+    public GameObject cross;
 
     private void Start()
     {
@@ -17,10 +19,35 @@ public class ShooterManager : MonoBehaviour {
         isTrigerred = true;
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        isTrigerred = false;
+    }
+
     private void OnMouseDown()
     {
-        Debug.Log("Raté !!");
+        if (shootable)
+        {
+            Debug.Log("Raté !!");
 
-        caseVide.enabled = false;
+            caseVide.enabled = false;
+
+            Instantiate(cross, caseVide.transform.position, Quaternion.identity);
+        }
+    }
+
+    public bool getIsTrigerred()
+    {
+        return isTrigerred;
+    }
+
+    public Collider2D getCaseVide()
+    {
+        return caseVide;
+    }
+
+    public void setShootableTrue()
+    {
+        shootable = true;
     }
 }

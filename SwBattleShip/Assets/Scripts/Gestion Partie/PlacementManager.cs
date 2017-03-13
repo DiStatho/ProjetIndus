@@ -8,6 +8,20 @@ public class PlacementManager : MonoBehaviour {
 
     public void swapCollider()
     {
+        ShooterManager[] casesVide = FindObjectsOfType<ShooterManager>();
+
+        foreach(ShooterManager sm in casesVide)
+        {
+            sm.enabled = true;
+
+            sm.setShootableTrue();
+
+            if (sm.getIsTrigerred() == true)
+            {
+                sm.getCaseVide().enabled = false;
+            }
+        }
+
         foreach (GameObject ships in ListeVaisseaux)
         {
             BoxCollider2D[] boxChildTemp = ships.GetComponentsInChildren<BoxCollider2D>(true);

@@ -50,6 +50,8 @@ public class BoxColliderBehavior : MonoBehaviour {
 
                     spaceShip.estTouche();
 
+                    Instantiate(explo, colliderbox.transform.position, Quaternion.identity);
+
                     colliderbox.enabled = false;
                 }
             }

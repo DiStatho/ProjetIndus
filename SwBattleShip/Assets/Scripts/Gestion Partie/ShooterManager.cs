@@ -24,6 +24,7 @@ public class ShooterManager : MonoBehaviour {
         isTrigerred = false;
     }
 
+    // methode PC...
     private void OnMouseDown()
     {
         if (shootable)
@@ -33,6 +34,29 @@ public class ShooterManager : MonoBehaviour {
             caseVide.enabled = false;
 
             Instantiate(cross, caseVide.transform.position, Quaternion.identity);
+        }
+    }
+
+    // methode pour android...
+    private void Update()
+    {
+        foreach (Touch touche in Input.touches)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(touche.position);
+
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider == caseVide)
+                {
+                    Debug.Log("Raté !!");
+
+                    caseVide.enabled = false;
+
+                    Instantiate(cross, caseVide.transform.position, Quaternion.identity);
+                }
+            }
         }
     }
 

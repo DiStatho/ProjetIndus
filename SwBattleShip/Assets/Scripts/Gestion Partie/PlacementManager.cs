@@ -6,9 +6,11 @@ public class PlacementManager : MonoBehaviour {
 
     public List<GameObject> ListeVaisseaux = new List<GameObject>();
 
+    private ShooterManager[] casesVide;
+
     public void swapCollider()
     {
-        ShooterManager[] casesVide = FindObjectsOfType<ShooterManager>();
+        casesVide = FindObjectsOfType<ShooterManager>();
 
         foreach(ShooterManager sm in casesVide)
         {

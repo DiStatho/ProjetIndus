@@ -9,7 +9,7 @@ public class DraggingShip : MonoBehaviour {
     [SerializeField]
     private float deltaPlacement = 0;
 
-    private float timerBeforeMoving = 1.0f;
+    private float timerBeforeMoving = 0.5f;
     private bool isMoving = false;
 
     public Grille grid;
@@ -85,7 +85,51 @@ public class DraggingShip : MonoBehaviour {
             ship.transform.Translate(-deltaPlacement, -deltaPlacement, 0);
         }
 
-        timerBeforeMoving = 1.0f;
+        timerBeforeMoving = 0.5f;
     }
+
+    // methode android 
+ /*   void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            Vector2 deltaPosition = Input.GetTouch(0).deltaPosition;
+            switch (Input.GetTouch(0).phase)
+            {
+                case TouchPhase.Began:
+                    break;
+
+                case TouchPhase.Moved:
+                    timerBeforeMoving -= Time.deltaTime;
+
+                    if (timerBeforeMoving <= 0)
+                        isMoving = true;
+
+                    if (isMoving)
+                    {
+                        Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, distance);
+                        Vector3 objPosition = Camera.main.ScreenToWorldPoint(position);
+                        transform.position = objPosition;
+                    }
+                    break;
+
+                case TouchPhase.Ended:
+                    if (isMoving)
+                    {
+                        calculVectorPlusProche();
+
+                        isMoving = false;
+                    }
+                    else
+                    {
+                        ship.transform.Rotate(0, 0, 90);
+                        ship.transform.Translate(-deltaPlacement, -deltaPlacement, 0);
+                    }
+
+                    timerBeforeMoving = 1.0f;
+                    break;
+            }
+        }
+    } */
 }
 
